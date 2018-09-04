@@ -17,7 +17,6 @@ class Home extends CI_Controller {
     echo $this->input->post('data');
 	}
   public function submit(){
-//    $this->load->database();
     $data= $this->input->post('data');
     for($i=0;$i<strlen($data);$i++){
       if(is_numeric(substr($data,$i,1))){
@@ -40,9 +39,7 @@ class Home extends CI_Controller {
     }
     $remove=array(' TAHUN', ' THN', ' TH', 'TAHUN','THN','TH');
     for($i=0;$i<count($remove);$i++){
-
       if(0==strcmp($remove[$i],substr($data,0,strlen($remove[$i])))){
-//        echo 'found'.$remove[$i];
       $data=substr($data,strlen($remove[$i]),strlen($data));
         break;
       }
@@ -56,10 +53,8 @@ class Home extends CI_Controller {
     if((!isset($page)) or (!is_numeric($page))){
       $page=0;
     }
-    $query = $this->db->query('SELECT*FROM user LIMIT 5 OFFSET '.$page*5 );
-//    echo 'Total Results: ' . $query->num_rows();
-    $data['query']=$query;
+    $data['query']=$this->user_model->view($page);
     $data['page']=$page;
-    $this->load->view('dataview', $data);
+    $this->load->view('user_view', $data);
   }
 }

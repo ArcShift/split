@@ -17,8 +17,9 @@
       $this->db->set('city',$city);
       $this->db->insert('user');
     }
-
-
+    public function view($page){
+      return $this->db->get('user', 5, $page*5);
+    }
 
 
     //=============================
@@ -39,9 +40,6 @@
             $this->content  = $_POST['content'];
             $this->date     = time();
             $this->db->update('entries', $this, array('id' => $_POST['id']));
-    }
-    public function view($page){
-
     }
   }
 ?>
