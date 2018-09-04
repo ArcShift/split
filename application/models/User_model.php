@@ -1,15 +1,27 @@
 <?php
-  class User extends CI_Model {
+  class User_model extends CI_Model {
 
     public $id;
     public $name;
     public $date;
+    public function __construct() {
+    parent::__construct();
+    $this->load->database();
+  }
     public function index(){
-      $this->load->database();
+//      $this->db->get('user');
     }
-    public funtion insert(){
+    public function insert($name, $age, $city){
+      $this->db->set('name',$name);
+      $this->db->set('age',$age);
+      $this->db->set('city',$city);
+      $this->db->insert('user');
+    }
 
-    }
+
+
+
+    //=============================
     public function get_last_ten_entries()
     {
       $query = $this->db->get('entries', 10);
