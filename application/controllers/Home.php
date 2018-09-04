@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller {
   public function __construct() {
     parent::__construct();
-    $this->load->database();
+    $this->load->model('user_model');
     $this->load->view('header');
   }
 	public function index()
@@ -50,9 +50,7 @@ class Home extends CI_Controller {
     if(substr($data,strlen($data)-1,1)==' '){
       $data=substr($data,0,strlen($data)-1);
     }
-    $sql="INSERT INTO user (name, age, city) VALUES ('".$name."', '".$age."','".$data."')";;
-    $this->db->query($sql);
-    $this->load->view('input');
+    $this->user_model->insert($name, $age, $data);
   }
   public function view($page=NULL){
     if((!isset($page)) or (!is_numeric($page))){
