@@ -1,0 +1,21 @@
+* Requirements:
+(1) Create a program to receive some user inputs using this format: NAME[space]AGE[space]CITY
+For example: CUT MINI 28 BANDA ACEH
+(2) After the data is submitted, the script parses it to get three data: Name, Age, and City
+(3) Those data are inserted into an MySQL table (or SQLite table, in the case of Android) whose fields are:
+- ID (auto increment)
+- NAME
+- AGE
+- CITY
+
+* Things to consider:
+(1) The program must be able to handle names and cities using multiple words (no limit). You have to convert the name and city data into upper case before inserting them into the table.    
+(2) As for age data, the program must be able to handle Indonesian user's common mistake, which is adding TAHUN, THN, or TH string after the age data. For example:
+- 28 TAHUN, 28 THN, 28 TH
+- 28TAHUN, 28THN, 28TH
+(3) Please make sure the program is able to handle TAHUN, THN, and TH strings case-insensitively.
+
+
+
+=====
+page view limit 5

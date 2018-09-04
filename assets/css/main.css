@@ -1,0 +1,16 @@
+body{
+/*  background-color: gray;*/
+}
+nav{
+  display: flex;
+}
+nav a{
+  text-decoration: none;
+/*  background-color: cyan;*/
+  border-style: solid;
+  margin: 2;
+  padding: 10;
+  background-color: aquamarine;
+}
+table{
+}
