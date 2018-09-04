@@ -5,6 +5,6 @@
 </head>
 <body>
   <nav>
-    <a href="<?php base_url()?>/test/index.php/home">Home</a>
-    <a href="<?php base_url()?>/test/index.php/home/view/">View</a>
+    <a href="<?php base_url()?>/test/index.php/user">Home</a>
+    <a href="<?php base_url()?>/test/index.php/user/view/">View</a>
   </nav>

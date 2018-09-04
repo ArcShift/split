@@ -15,7 +15,9 @@ For example: CUT MINI 28 BANDA ACEH
 - 28TAHUN, 28THN, 28TH
 (3) Please make sure the program is able to handle TAHUN, THN, and TH strings case-insensitively.
 
-
-
 =====
 page view limit 5
+======
++split model
+#input patern (regex)
+======

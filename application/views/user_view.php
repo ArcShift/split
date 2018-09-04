@@ -25,7 +25,7 @@
         <?php } ?>
       </td>
       <td>
-        <h3>Page <?php echo $page+1 ?></h3>
+        <h3>Page <?php echo $page ?></h3>
       </td>
       <td>
         <?php if($query->num_rows()==5){ ?>
