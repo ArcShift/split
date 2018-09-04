@@ -14,7 +14,6 @@ class User extends CI_Controller {
     if(isset($_POST['OK'])){
       echo 'ok';
     }
-    echo $this->input->post('data', TRUE);
 	}
   public function submit(){
     $this->load->view('input');
@@ -28,8 +27,10 @@ class User extends CI_Controller {
     }
     else
     {
-      echo 'validasi benar';
-    $data= $this->input->post('data');
+    echo 'validasi benar';
+    $data= $this->input->post('data', TRUE);
+    $data= $this->security->xss_clean($data);//XSS
+    //begin find pattern
     for($i=0;$i<strlen($data);$i++){
       if(is_numeric(substr($data,$i,1))){
         $name=substr($data,0,$i);
@@ -59,12 +60,13 @@ class User extends CI_Controller {
     if(substr($data,strlen($data)-1,1)==' '){
       $data=substr($data,0,strlen($data)-1);
     }
-    $this->user_model->insert($name, $age, $data);
+//    $this->user_model->insert($name, $age, $data);
     if((!isset($name))||(!isset($age))){//2nd validation
       echo 'data tidak valid';
     }else{
       $this->user_model->insert($name, $age, $data);
     }
+    //end find pattern
     }
   }
   public function view($page=NULL){
